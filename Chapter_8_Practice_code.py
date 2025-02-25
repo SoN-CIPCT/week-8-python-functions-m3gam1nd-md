@@ -266,30 +266,124 @@
 # show_printed_texts(printed_texts)
 
 #practice 8-11 - add to last - call function send_messages() with a copy of the list of messages, then print both lists to show original has retained list
-def messages(unprinted_text, printed_texts):
-    """Print texts and move to another list then confirm moved."""
+# def messages(unprinted_text, printed_texts):
+#     """Print texts and move to another list then confirm moved."""
 
-    while unprinted_text:
-        current_text = unprinted_text.pop()
-        print(f"Here's your message: {current_text}")
-        printed_texts.append(current_text)
+#     while unprinted_text:
+#         current_text = unprinted_text.pop()
+#         print(f"Here's your message: {current_text}")
+#         printed_texts.append(current_text)
 
-def show_printed_texts(printed_texts):
-    """Shows all printed texts"""
-    print("\nThe following texts have been printed:")
-    for printed_text in printed_texts:
-        print(printed_text)
+# def show_printed_texts(printed_texts):
+#     """Shows all printed texts"""
+#     print("\nThe following texts have been printed:")
+#     for printed_text in printed_texts:
+#         print(printed_text)
 
-def show_unprinted_texts(unprinted_text):
-    """shows all what's still in the unprinted text list"""
-    print(f"\nThese texts are preserved in the list: ")
-    for unprinted_text in printed_texts:
-        print(unprinted_text)
+# def show_unprinted_texts(unprinted_text):
+#     """shows all what's still in the unprinted text list"""
+#     print(f"\nThese texts are preserved in the list: ")
+#     for unprinted_text in printed_texts:
+#         print(unprinted_text)
 
-unprinted_text = ['hello you', 'where you at', 'when are you leaving']
-printed_texts = []
+# unprinted_text = ['hello you', 'where you at', 'when are you leaving']
+# printed_texts = []
 
-messages(unprinted_text[:], printed_texts)
-show_printed_texts(printed_texts)
-show_unprinted_texts(unprinted_text)
+# messages(unprinted_text[:], printed_texts)
+# show_printed_texts(printed_texts)
+# show_unprinted_texts(unprinted_text)
 
+#passing an arbitrary number of arguments
+# def make_pizza(*toppings):
+#     """Print the list of toppings that have been requested."""
+#     print("\nMaking a pizza with the following toppings:")
+#     for topping in toppings:
+#         print(f" - {topping}")
+# make_pizza('pepperoni')
+# make_pizza('mushrooms', 'green peppers', 'extra cheese')
+
+#mixing positional and arbitrary arguments
+# def make_pizza(size, crust, *toppings):
+#     """Summarize the pizza we are about to make."""
+#     print(f"\nMaking a {size}-inch pizza with {crust} crust and the following toppings:")
+#     for topping in toppings:
+#         print(f"- {topping}")
+# make_pizza(16, 'hand-tossed', 'pepperoni', 'jalapenos')
+# make_pizza(12, 'thin-crust', 'mushrooms', 'green peppers', 'extra cheese')
+
+#using arbitrary keyword arguments
+# def build_profile(first, last, **user_info):
+#     """Build a dictionary containing everything we know about a user."""
+#     user_info['first_name'] = first
+#     user_info['last_name'] = last
+#     return user_info
+# user_profile = build_profile('albert', 'einstein',
+#                             location='princeton',
+#                             field='physics', hair='gray')
+# print(user_profile)
+
+#practice 8-12
+# def make_sandwich(*toppings):
+#     """Print the list of toppings that have been requested."""
+#     print("\nMaking a sandwich with the following toppings:")
+#     for topping in toppings:
+#         print(f" - {topping}")
+# make_sandwich('ham', 'cheese', 'spicy mayo')
+# make_sandwich('roast beef','mushrooms', 'green peppers', 'swiss cheese', 'mustard')
+# make_sandwich('peanut butter', 'bananas', 'jelly')
+
+#practice 8-13
+# def build_profile(first, last, **user_info):
+#     """Build a dictionary containing everything we know about a user."""
+#     user_info['first_name'] = first
+#     user_info['last_name'] = last
+#     return user_info
+# user_profile = build_profile('demian', 'packett',
+#                             location='tacoma',
+#                             field='medicine', hair='light brown', height='6ft2in')
+# print(user_profile)
+
+#practice 8-14
+# def build_car(make, model, **kwargs):
+#     """Build a dictionary containing everything we know about a user."""
+#     kwargs['car_make'] = make
+#     kwargs['car_model'] = model
+#     return kwargs
+# car_profile = build_car('subaru', 'outback',
+#                         color='green',
+#                         tow_package=True, trim_package='touring', upholstery='leather')
+# car_profile2 = build_car('honda', 'civic', color='blue', 
+#                          tow_package=False, upholstery='cloth')
+# car_profile3 = build_car('toyota', 'tacoma', color='steal gray',
+#                             towing_package=True, upholstery="vinyl")
+# print(car_profile)
+# print(car_profile3)
+# print(car_profile2)
+
+#storing functions in modules/importing them
+#create a function in a module file called "pizza.py"
+# def make_pizza(size, *toppings):
+#     """Summarize the pizza we are about to make."""
+#     print(f"\nMaking a {size}-inch pizza with the following toppings:")
+#     for topping in toppings:
+#         print(f"- {topping}")
+
+#     #in a separate file called "making_pizzas.py" but in the same directory import a function
+# from pizza import make_pizza
+# pizza.make_pizza(16, 'pepperoni')
+# pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+
+# #Using as to Give a Function an Alias
+# from pizza import make_pizza as mp
+# mp(16, 'pepperoni')
+# mp(12, 'mushrooms', 'green peppers', 'extra cheese')
+
+#     #Using as to Give a Module an Alias
+# import pizza as p
+# p.make_pizza(16, 'pepperoni')
+# p.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+
+#     #importing all functions in a module
+# from pizza import *
+# make_pizza(16, 'pepperoni')
+# make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
